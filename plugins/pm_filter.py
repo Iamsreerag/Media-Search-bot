@@ -117,17 +117,7 @@ async def group(client, message):
             nyva=botusername.username
             BOT["username"]=nyva
         files = await get_filter_results(query=search)
-        if files:
-            for file in files:
-                file_id = file.file_id
-                filename = f"[{get_size(file.file_size)}] {file.file_name}"
-                btn.append(
-                    [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=subinps_-_-_-_{file_id}")]
-                )
-        else:
-            return
-        if not btn:
-            return
+        
 
         if len(btn) > 10: 
             btns = list(split_list(btn, 10)) 
